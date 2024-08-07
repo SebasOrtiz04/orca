@@ -39,32 +39,32 @@ export const  ServicesLoaderCard = () => (
 export const ServicesResumeLoader = () =>(
   <Grid container xs={12}>
   {
-    [...Array(6)].map((_,index)=>(
-      <Grid item xs={6} sm={4} lg={6}>
-          <Paper key={index} elevation={1}  
+    [...Array(4)].map((_,index)=>(
+      <Grid key={index} item xs={6} sm={4} lg={6}>
+          <Paper  elevation={0}  
               sx={{
-                  padding:1,margin:1, display:'flex',
+                  padding:1,margin:1, display:'flex', flexDirection:'column',
                   alignItems:'center', justifyContent:'space-evenly'
               }}
           >
-          <Box sx={{width:50, display:'flex', justifyContent:'center'}}>
-            <Skeleton variant='circular' width={40} height={40} />
-          </Box>
 
-          <Divider  orientation="vertical" 
-          variant="fullWidth" flexItem  
-          />
-
-          <Stack alignItems={'center'} justifyContent={'center'} gap={0.5} minWidth={80}>
+            <Stack direction={'row'} width={'100%'} justifyContent={'center'} gap={1}>
+              <Skeleton variant='circular' width={32} height={32} />
+                          
+              <Divider  orientation="vertical" 
+              variant="fullWidth" flexItem  
+              />
+                          
               <Typography variant="h6">
                 <Skeleton variant='text' width={60} />
               </Typography>
-              <Divider variant="fullWidth" flexItem/>
-              <Typography variant="caption" sx={{margin:0.5}}>
-                <Skeleton variant='text' width={80} />
-              </Typography>
-          </Stack>
-          
+            </Stack>
+
+            <Divider variant="fullWidth" flexItem/>
+
+            <Typography variant="caption" sx={{margin:0.5}}>
+              <Skeleton variant='text' width={80} />
+            </Typography>
           </Paper>
       </Grid>
     ))}

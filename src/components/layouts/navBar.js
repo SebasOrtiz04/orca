@@ -23,7 +23,7 @@ import FacebookIcon from '@mui/icons-material/Facebook';
 import CustomMenu from './menu';
 import { OpenMenu } from '@/redux/actions/MenuActions';
 import {useDispatch} from 'react-redux';
-import {useTheme} from '@mui/material'
+import {Container, useTheme} from '@mui/material'
 import Link from 'next/link';
 import styles from './styles.module.css';
 import { useRouter } from 'next/navigation';
@@ -211,101 +211,103 @@ export default function NavBar() {
       transition:'all',animationDuration:100,backgroundColor: isScrolled ? theme.palette.primary.light : theme.palette.primary.main
       }}
       >
+        <Container>
         <Toolbar>
 
 
-          <Link href='/' className={styles.a}>
-          <Stack direction='row' gap={2} alignItems='center'>
-          <Image
-            srcSet='/img/Logos/orca2.png'
-            src='/img/Logos/orca2.png'
-            alt='Logo Orca Eventos Sociales'
-            priority
-            width={80}
-            height={80}
-          />
+<Link href='/' className={styles.a}>
+<Stack direction='row' gap={2} alignItems='center'>
+<Image
+  srcSet='/img/Logos/orca2.png'
+  src='/img/Logos/orca2.png'
+  alt='Logo Orca Eventos Sociales'
+  priority
+  width={80}
+  height={80}
+/>
 
-          <Typography
-            variant="h6"
-            color={'secondary.ligth'}
-            noWrap
-            component="div"
-            sx={{ display: { xs: 'flex', sm: 'none' },color:theme.palette.secondary.light}}
-          >
-            Orca
-          </Typography>
+<Typography
+  variant="h6"
+  color={'secondary.ligth'}
+  noWrap
+  component="div"
+  sx={{ display: { xs: 'flex', sm: 'none' },color:theme.palette.secondary.light}}
+>
+  Orca
+</Typography>
 
-          <Typography
-            variant="h6"
-            color={'secondary.ligth'}
-            noWrap
-            component="div"
-            sx={{ display: { xs: 'none', sm: 'flex' },color:theme.palette.secondary.light}}
-          >
-            Salón Jardín Orca
-          </Typography>
-          </Stack>
-          </Link>
-
-          
-          {/* <Search>
-            <SearchIconWrapper>
-              <SearchIcon />
-            </SearchIconWrapper>
-            <StyledInputBase
-              placeholder="Buscar..."
-              inputProps={{ 'aria-label': 'search' }}
-            />
-          </Search> */}
-
-          <Box sx={{ flexGrow: 1 }} />
-
-          <Stack direction={'row'} alignItems={'center'}>
+<Typography
+  variant="h6"
+  color={'secondary.ligth'}
+  noWrap
+  component="div"
+  sx={{ display: { xs: 'none', sm: 'flex' },color:theme.palette.secondary.light}}
+>
+  Salón Jardín Orca
+</Typography>
+</Stack>
+</Link>
 
 
-          <Button 
-          aria-label='navegar a página de contacto' 
-          onClick={()=>router.push('/galery')} 
-          color='secondary'
-          sx={{display:{xs:'none',md:'flex',color:theme.palette.secondary.light}}}
-          >
-            Galería
-          </Button>
+{/* <Search>
+  <SearchIconWrapper>
+    <SearchIcon />
+  </SearchIconWrapper>
+  <StyledInputBase
+    placeholder="Buscar..."
+    inputProps={{ 'aria-label': 'search' }}
+  />
+</Search> */}
+
+<Box sx={{ flexGrow: 1 }} />
+
+<Stack direction={'row'} alignItems={'center'}>
 
 
-          <Button 
-          aria-label='navegar a página de contacto' 
-          onClick={()=>router.push('/contact')} 
-          color='secondary'
-          sx={{display:{xs:'none',md:'flex'},color:theme.palette.secondary.light}}
-          >
-            Contáctanos
-          </Button>
-          <IconButton 
-            size="large" 
-            aria-label="Enlace Facebook" 
-            color="secondary"
-            type='href'
-            target='_blank'
-            href='https://www.facebook.com/profile.php?id=61556546690736'
-            sx={{color:theme.palette.secondary.light}}
-            >
-                <FacebookIcon />
-          </IconButton>
-          <IconButton
-            size="large"
-            color="secondary"
-            aria-label="open drawer"
-            sx={{display: { xs: 'none', md: 'flex' },color:theme.palette.secondary.light}}
-            onClick={() => dispatch(OpenMenu())}
+<Button 
+aria-label='navegar a página de contacto' 
+onClick={()=>router.push('/galery')} 
+color='secondary'
+sx={{display:{xs:'none',md:'flex',color:theme.palette.secondary.light}}}
+>
+  Galería
+</Button>
 
-          >
-            <MenuIcon/>
-          </IconButton>
-          </Stack>
 
-          <CustomMenu />
-        </Toolbar>
+<Button 
+aria-label='navegar a página de contacto' 
+onClick={()=>router.push('/contact')} 
+color='secondary'
+sx={{display:{xs:'none',md:'flex'},color:theme.palette.secondary.light}}
+>
+  Contáctanos
+</Button>
+<IconButton 
+  size="large" 
+  aria-label="Enlace Facebook" 
+  color="secondary"
+  type='href'
+  target='_blank'
+  href='https://www.facebook.com/profile.php?id=61556546690736'
+  sx={{color:theme.palette.secondary.light}}
+  >
+      <FacebookIcon />
+</IconButton>
+{/* <IconButton
+  size="large"
+  color="secondary"
+  aria-label="open drawer"
+  sx={{display: { xs: 'none', md: 'flex' },color:theme.palette.secondary.light}}
+  onClick={() => dispatch(OpenMenu())}
+
+>
+  <MenuIcon/>
+</IconButton> */}
+</Stack>
+
+<CustomMenu />
+</Toolbar>
+        </Container>
       </AppBar>
       {renderMobileMenu}
       {renderMenu}

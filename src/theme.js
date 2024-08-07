@@ -18,7 +18,8 @@ const theme = createTheme({
       contrastText: '#454032',
     },
     blackMask:{
-      main: 'rgba(0,0,0,0.5)'
+      main: 'rgba(0,0,0,0.5)',
+      contrastText: 'rgb(111,111,111)'
     },
     white:{
       main: 'rgba(255,255,255,0.5)'
