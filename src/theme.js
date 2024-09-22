@@ -7,15 +7,15 @@ const theme = createTheme({
     mode: 'light',
     primary: {
       light: 'rgba(21,31,40,0.8)',
-      main: '#151F28',
-      dark: '#607168 ',
-      contrastText: '#fff',
+      main: '#151f28',
+      dark: '#363f47 ',
+      contrastText: '#fefdfd',
     },
     secondary: {
-      light: '#f7eeda',
-      main: '#BC9C22',
-      dark: '#221d0e',
-      contrastText: '#454032',
+      light: '#f2ebda',
+      main: '#c5b16e',
+      dark: '#a28d23',
+      contrastText: '#4f4519',
     },
     blackMask:{
       main: 'rgba(0,0,0,0.5)',
