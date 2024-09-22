@@ -27,7 +27,7 @@ export default function HeroContact() {
             icon:<PhoneIphoneIcon/>
         },
         {
-            label:'ventas@gmail.com',
+            label:'ventas@salonorca.com',
             icon:<EmailIcon/>,
         }
     ]
