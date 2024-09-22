@@ -27,6 +27,7 @@ import {Container, useTheme} from '@mui/material'
 import Link from 'next/link';
 import styles from './styles.module.css';
 import { useRouter } from 'next/navigation';
+import AccountMenu from './accountMenu';
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -303,6 +304,7 @@ sx={{display:{xs:'none',md:'flex'},color:theme.palette.secondary.light}}
 >
   <MenuIcon/>
 </IconButton> */}
+<AccountMenu/>
 </Stack>
 
 <CustomMenu />
