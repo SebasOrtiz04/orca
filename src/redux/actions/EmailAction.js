@@ -4,7 +4,6 @@ import { MostrarAlerta } from './AlertaAction'
 
 export const sendContactMail = (form) =>{
     return async dispatch => {
-        console.log('aqui')
         dispatch({
             type:emailTypes.SEND_CONTACT_EMAIL_STATUS,
             payload:{loading:true,status:-1}
