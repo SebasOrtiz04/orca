@@ -35,8 +35,8 @@ export const homeImages = [
       title: 'Mesa matelería rosa.',
     },
     {
-     img: '/img/homeGalery/08.jpg',
-      title: 'Salón vacío iluminado',
+     img: '/img/homeGalery/08.png',
+      title: 'Jardín',
     },
     {
      img: '/img/homeGalery/09.jpg',
@@ -46,7 +46,7 @@ export const homeImages = [
     },
     {
      img: '/img/homeGalery/12.jpg',
-      title: 'Salón iluminado.',
+      title: 'Inflable.',
       cols: 2,
       rows:2
     },
