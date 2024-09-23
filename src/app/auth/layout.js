@@ -1,50 +1,37 @@
 'use client'
 
-import { Box, Button, ButtonGroup, Stack, useTheme } from "@mui/material";
+import { Box, Button, Container, Grow, useTheme } from "@mui/material";
 import Image from "next/image";
-import styles from './styles.module.css';
+import styles from './styles.module.css'
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import { useRouter } from "next/navigation";
 
-export default function AuthLayout({
-    children, // will be a page or nested layout
-  }) {
-
-    const router = useRouter();
+export default function AuthLAyout({ children }) {
+    
     const theme = useTheme();
-
+    const router = useRouter();
+    
     return (
-      <Box sx={{width:'100vw',minHeight:'calc(100vh -  180px)',backgroundColor:theme.palette.primary.main}}>
-        <Stack alignItems={'center'}>
-            <Image
-            srcSet='/img/Logos/orca_dorada.png'
-            src='/img/Logos/orca_dorada.png'
-            alt='Logo Orca Eventos Sociales'
-            priority
-            className={styles.img}
-            width={300}
-            height={200}
-            />
-            <main className={styles.main}>
-                {children}
-            </main>
-            <nav className={styles.nav}>
-                <ButtonGroup variant="contained" aria-label="Basic button group">
-                    <Button
-                    onClick={() => router.push('/auth/login')}
-                    >
-                        Iniciar sesión
-                    </Button>
-                    <Button
-                    onClick={() => router.push('/auth/create-account')}
-                    >
-                        Registrarme
-                    </Button>
-                </ButtonGroup>
-                <Button onClick={() => router.push('/')} color="secondary">
-                    Volver
+        <Box sx={{position:'absolute', backgroundColor:theme.palette.primary.main, width:'100vw', minHeight:'100vh', top:0,left:0,zIndex:1200}}>
+            <Container>
+                <Button startIcon={<ArrowBackIcon/>} sx={{marginY:2}} color="secondary" onClick={() => router.push('/')}>
+                    salón JArdín Orca
                 </Button>
-            </nav>
-        </Stack>
-      </Box>
-    )
+            </Container>
+            <Container sx={{display:'flex',alignItems:'center',justifyContent:'flex-start',height:'100%', flexDirection:'column'}}>
+                <Grow in>
+                    <Image
+                    srcSet='/img/Logos/orca_dorada.png'
+                    src='/img/Logos/orca_dorada.png'
+                    alt='Logo Orca Eventos Sociales'
+                    priority
+                    className={styles.img}
+                    width={300}
+                    height={200}
+                    />
+                </Grow>
+            
+                {children}
+            </Container>
+        </Box>)
   }

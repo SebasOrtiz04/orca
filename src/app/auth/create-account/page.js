@@ -4,8 +4,8 @@ import TextForm from "@/components/utils/textForm";
 import { formInputsCreateAccount, createAccountFormInitialState, validateFormCreateAccountInitialState } from "@/lib/data/initialStates/authInitialStates";
 import { handleValidateForm } from "@/lib/helpers";
 import { MostrarAlerta } from "@/redux/actions/AlertaAction";
-import { PostCreateAccount } from "@/redux/actions/AuthAction";
-import { Button, Card, CardActions, CardContent, CardHeader, Grow, useTheme } from "@mui/material";
+import { PostCreateAccount, SetCreateAccounStatus } from "@/redux/actions/AuthAction";
+import { Button, Card, CardActions, CardContent, CardHeader, Grow, Typography, useTheme } from "@mui/material";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -56,8 +56,8 @@ export default function CreateAccount() {
 
     useEffect(()=>{
       const {createAccount} = status
-      console.log(createAccount)
       if(createAccount === 201){
+        dispatch(SetCreateAccounStatus())
         router.push('/auth/check-point')
         return
       }
@@ -75,6 +75,9 @@ export default function CreateAccount() {
 
     },[status])
 
+    const primaryMain = theme.palette.primary.main;
+    const secondaryDark = theme.palette.secondary.dark;
+
     const handleSend = () => {
       const cookedform = {
         ...form,
@@ -86,7 +89,11 @@ export default function CreateAccount() {
     return (
       <Grow in>
         <Card sx={{width:'min(90vw, 400px)', backgroundColor:theme.palette.primary.contrastText}}>
-            <CardHeader title={'Crear cuenta'}/>
+            <CardHeader 
+            title={'Crear cuenta'}
+            subheader={'Salón Jardín Orca'}
+            titleTypographyProps={{fontSize:42,color:primaryMain}}
+            subheaderTypographyProps={{fontSize:28,color:secondaryDark}}/>
             <CardContent>
                 <TextForm
                 form={form}
@@ -98,7 +105,12 @@ export default function CreateAccount() {
             </CardContent>
             <CardActions sx={{display:'flex', flexDirection:'column'}}>
                 <Button fullWidth variant="contained" disabled={!formReady} onClick={() => handleSend()}>
-                    Iniciar sesión
+                    Crear cuenta
+                </Button>
+                <Button onClick={() => router.push('/auth/login')}>
+                    <Typography variant="caption">
+                      ya tengo cuenta, iniciar sesión
+                    </Typography>
                 </Button>
             </CardActions>
         </Card>
