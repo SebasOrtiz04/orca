@@ -16,11 +16,7 @@ export const RootAlert = () => {
       onClose={() => dispatch(CerrarAlerta())} 
       anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
       >
-        <Alert
-          severity={alerta.severity}
-          variant="filled"
-          sx={{ width: '100%' }}
-        >
+        <Alert severity={alerta.severity}>
           {alerta.msg}
         </Alert>
       </Snackbar>
