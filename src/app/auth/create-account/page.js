@@ -5,18 +5,20 @@ import { formInputsCreateAccount, createAccountFormInitialState, validateFormCre
 import { handleValidateForm } from "@/lib/helpers";
 import { MostrarAlerta } from "@/redux/actions/AlertaAction";
 import { PostCreateAccount, SetCreateAccounStatus } from "@/redux/actions/AuthAction";
-import { Button, Card, CardActions, CardContent, CardHeader, Grow, Typography, useTheme } from "@mui/material";
+import { Avatar, Button, Card, CardActions, CardContent, CardHeader, CircularProgress, Grow, Typography, useTheme } from "@mui/material";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import PersonAddIcon from '@mui/icons-material/PersonAdd';
 
 export default function CreateAccount() {
 
-    const dispatch = useDispatch();
-    const theme = useTheme();
-    const router = useRouter();
-
-    const {status} = useSelector(state => state.auth);
+  const dispatch = useDispatch();
+  const theme = useTheme();
+  const router = useRouter();
+  
+  const {status, isLoading} = useSelector(state => state.auth);
+  console.log(isLoading.createAccount)
 
     const [form, setForm] = useState(createAccountFormInitialState);
     const [validateForm, setValidateForm] = useState(validateFormCreateAccountInitialState);
@@ -104,10 +106,24 @@ export default function CreateAccount() {
                 />
             </CardContent>
             <CardActions sx={{display:'flex', flexDirection:'column'}}>
-                <Button fullWidth variant="contained" disabled={!formReady} onClick={() => handleSend()}>
+                <Button 
+                fullWidth 
+                variant="contained" 
+                startIcon={
+                  <Avatar sx={{backgroundColor:'transparent'}}>
+                    {
+                      isLoading.createAccount 
+                      ? <CircularProgress size={15}/>
+                      : <PersonAddIcon />
+                    }
+                  </Avatar>
+                } 
+                disabled={!formReady || isLoading.createAccount} 
+                onClick={() => handleSend()}
+                >
                     Crear cuenta
                 </Button>
-                <Button onClick={() => router.push('/auth/login')}>
+                <Button onClick={() => router.push('/auth/login')} >
                     <Typography variant="caption">
                       ya tengo cuenta, iniciar sesión
                     </Typography>

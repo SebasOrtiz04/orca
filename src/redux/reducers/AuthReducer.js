@@ -4,9 +4,11 @@ const InitialState={
     user :null,
     isLoading:{
         createAccount:false,
+        confirmAccount:false,
     },
     status:{
-        createAccount:-1
+        createAccount:-1,
+        confirmAccount:-1,
     }
 }
 
@@ -36,7 +38,31 @@ export default function (state=InitialState,action){
                     createAccount:action.payload.loading
                 }
             }
+        case authTypes.CONFIRM_ACCOUNT:
+            return {
+                ...state,
+                isLoading:{
+                    ...state.isLoading,
+                    confirmAccount:false
+                },
+                status:{
+                    ...state.status,
+                    confirmAccount:200
+                }
+            }
+        case authTypes.CONFIRM_ACCOUNT_STATUS:
+            return{
+                ...state,
+                status:{
+                    ...state.status,
+                    confirmAccount:action.payload.status
+                },
+                isLoading:{
+                    ...state.isLoading,
+                    confirmAccount:action.payload.loading
+                }
+            }
         default:
-            return {...state}
+            return state
         }
 }
