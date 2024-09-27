@@ -5,10 +5,14 @@ const InitialState={
     isLoading:{
         createAccount:false,
         confirmAccount:false,
+        getAuthUser:false,
+        login:false,
     },
     status:{
         createAccount:-1,
         confirmAccount:-1,
+        getAuthUser:-1,
+        login:-1,
     }
 }
 
@@ -60,6 +64,56 @@ export default function (state=InitialState,action){
                 isLoading:{
                     ...state.isLoading,
                     confirmAccount:action.payload.loading
+                }
+            }
+        case authTypes.GET_AUTH_USER:
+            return {
+                ...state,
+                user:action.payload,
+                isLoading:{
+                    ...state.isLoading,
+                    getAuthUser:false
+                },
+                status:{
+                    ...state.status,
+                    getAuthUser:200
+                }
+            }
+        case authTypes.GET_AUTH_USER_STATUS:
+            return{
+                ...state,
+                status:{
+                    ...state.status,
+                    getAuthUser:action.payload.status
+                },
+                isLoading:{
+                    ...state.isLoading,
+                    getAuthUser:action.payload.loading
+                }
+            }
+        case authTypes.LOGIN:
+            return {
+                ...state,
+                user:action.payload,
+                isLoading:{
+                    ...state.isLoading,
+                    login:false
+                },
+                status:{
+                    ...state.status,
+                    login:200
+                }
+            }
+        case authTypes.LOGIN_STATUS:
+            return{
+                ...state,
+                status:{
+                    ...state.status,
+                    login:action.payload.status
+                },
+                isLoading:{
+                    ...state.isLoading,
+                    login:action.payload.loading
                 }
             }
         default:

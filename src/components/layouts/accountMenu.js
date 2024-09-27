@@ -1,4 +1,4 @@
-import { Fragment, useState } from 'react';
+import { Fragment, useEffect, useState } from 'react';
 
 import Avatar from '@mui/material/Avatar';
 import Menu from '@mui/material/Menu';
@@ -13,6 +13,9 @@ import Settings from '@mui/icons-material/Settings';
 import Logout from '@mui/icons-material/Logout';
 import LoginIcon from '@mui/icons-material/Login';
 import { useRouter } from 'next/navigation';
+import { Box, Typography, useTheme } from '@mui/material';
+import { useDispatch, useSelector } from 'react-redux';
+import { GetAuthUser } from '@/redux/actions/AuthAction';
 
 const buttonProps = {
     paper: {
@@ -45,11 +48,32 @@ const buttonProps = {
 
 export default function AccountMenu() {
 
-    const router = useRouter()
+    const router = useRouter();
+    const dispatch = useDispatch();
+    const theme = useTheme();
+
+    const {user} = useSelector(state => state.auth)
+    
     const [anchorEl, setAnchorEl] = useState(null);
-  
+    const [ready, setReady] = useState(false);
+
     const open = Boolean(anchorEl);
     
+    useEffect(() => {
+      setReady(true)
+      return () => setReady(false)
+    }, []);
+
+    useEffect(() => {
+      if(!ready) return
+      dispatch(GetAuthUser());
+    }, [ready]);
+
+    useEffect(() => {
+      console.log(user)
+    }, [user]);
+    
+
     const accountLinks = [
         // [
         //     {
@@ -106,8 +130,10 @@ export default function AccountMenu() {
             aria-haspopup="true"
             aria-expanded={open ? 'true' : undefined}
           >
-            <Avatar sx={{ width: 32, height: 32, backgroundColor: 'transparent' }}>
-                
+            <Avatar sx={{ width: 32, height: 32, display:'flex', justifyContent:'center', backgroundColor: theme.palette.secondary.light, color: theme.palette.primary.main }}>
+                <Typography variant='h6'>
+                  {user && `${user?.firstName[0].toUpperCase()}${user?.lastName[0].toUpperCase()}` }
+                </Typography>
             </Avatar>
           </IconButton>
         </Tooltip>
@@ -124,7 +150,7 @@ export default function AccountMenu() {
       >
         {
             accountLinks.map((sublist,key)=>(
-                <>
+                <Box key={key}>
                     { key > 0 && <Divider/>}  
                     {
                         sublist.map(({link,icon, label},i)=>(
@@ -136,7 +162,7 @@ export default function AccountMenu() {
                             </MenuItem>
                         ))
                     }
-                </>             
+                </Box>             
             ))
         }
       </Menu>

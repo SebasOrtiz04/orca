@@ -5,11 +5,21 @@ import Image from "next/image";
 import styles from './styles.module.css'
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import { useRouter } from "next/navigation";
+import { useSelector } from "react-redux";
+import { useEffect } from "react";
 
 export default function AuthLAyout({ children }) {
-    
+
     const theme = useTheme();
     const router = useRouter();
+
+    const {user} = useSelector(state => state.auth);
+
+    useEffect(()=>{
+
+        if(!user) return
+        router.push('/dashboard')
+    },[user])
     
     return (
         <Box sx={{position:'absolute', backgroundColor:theme.palette.primary.main, width:'100vw', minHeight:'100vh', top:0,left:0,zIndex:1200}}>

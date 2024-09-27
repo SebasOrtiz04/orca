@@ -4,10 +4,30 @@ import { Stack, Grow, Typography, Button, Card, CardMedia, CardHeader, CardConte
 
 import CelebrationIcon from '@mui/icons-material/Celebration';
 import { useRouter } from 'next/navigation';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { GetUserCheckPoint, SetGetAuthUserStatus } from '@/redux/actions/AuthAction';
 export default function CheckPoint() {
   
+    const dispatch = useDispatch();
     const theme = useTheme();
     const router = useRouter();
+
+    const {status} = useSelector(state => state.auth);
+
+    useEffect(()=>{
+      const interval = setInterval(()=> dispatch(GetUserCheckPoint()),1000)
+      return () => {
+        clearInterval(interval)
+        dispatch(SetGetAuthUserStatus())
+      }
+    },[])
+
+    useEffect(()=>{
+      const {getAuthUser} = status
+      if(getAuthUser !== 200) return
+      router.push('/dashboard')
+    },[status])
 
     const primaryText = theme.palette.primary.contrastText;
     const secondaryMain = theme.palette.secondary.main;
