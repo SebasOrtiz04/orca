@@ -7,17 +7,17 @@ import { CerrarAlerta } from '@/redux/actions/AlertaAction';
 export const RootAlert = () => {
 
     const dispatch = useDispatch();
-    const {alerta} = useSelector(state => state.alerta)
+    const {open, severity, msg} = useSelector(state => state.alerta)
 
   return (
       <Snackbar 
-      open={alerta.open} 
+      open={open} 
       autoHideDuration={3000} 
       onClose={() => dispatch(CerrarAlerta())} 
       anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
       >
-        <Alert severity={alerta.severity}>
-          {alerta.msg}
+        <Alert severity={severity}>
+          {msg}
         </Alert>
       </Snackbar>
   );

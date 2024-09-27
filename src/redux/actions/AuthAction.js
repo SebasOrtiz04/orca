@@ -72,3 +72,77 @@ export const PostConfirmAccount = form =>{
         }
     }
 }
+
+export const SetGetAuthUserStatus = (loading=false,status=-1) => dispatch =>{
+    dispatch({
+        type:authTypes.GET_AUTH_USER_STATUS,
+        payload:{loading,status}
+    })
+}   
+
+export const GetAuthUser = () =>{
+    return async dispatch => {
+        dispatch(SetGetAuthUserStatus(true))
+        try{
+            const response = await api.get('/auth/user');
+            const {status,data} = response;
+            if(status === 200){
+                dispatch({
+                    type: authTypes.GET_AUTH_USER,
+                    payload:data
+                })
+            }
+        }catch(error){
+            localStorage.removeItem('ACCESS_TOKEN')
+            dispatch(SetGetAuthUserStatus(false,500))
+        }
+    }
+}
+
+export const GetUserCheckPoint = () =>{
+    return async dispatch => {
+        dispatch(SetGetAuthUserStatus(true))
+        try{
+            const response = await api.get('/auth/user');
+            const {status,data} = response;
+            console.log(data)
+            if(status === 200){
+                dispatch({type:authTypes.GET_AUTH_USER,payload:data})
+                dispatch(MostrarAlerta({msg:`Bienvenido ${data?.firstName}`,severity:'success'}))
+            }
+
+        }catch(error){
+            dispatch(SetGetAuthUserStatus(false,500))
+        }
+    }
+}
+
+export const SetLogintatus = (loading=false,status=-1) => dispatch =>{
+    dispatch({
+        type:authTypes.LOGIN_STATUS,
+        payload:{loading,status}
+    })
+}   
+
+export const HandleLogin = form =>{
+    return async dispatch => {
+        dispatch(SetLogintatus(true))
+        try{
+            const response = await api.post('/auth/login',form);
+            const {status,data} = response;
+            if(status === 200){
+                localStorage.setItem('ACCESS_TOKEN',data.token)
+                dispatch({
+                    type: authTypes.LOGIN,
+                    payload:data.user
+                })
+                dispatch(MostrarAlerta({msg:`Bienvenido ${data?.firstName}`,severity:'success'}))
+            }
+
+        }catch(error){
+            console.log(error)
+            dispatch(SetLogintatus(false,500))
+            dispatch(MostrarAlerta({msg:`Error en el servidor`,severity:'success'}))
+        }
+    }
+}
