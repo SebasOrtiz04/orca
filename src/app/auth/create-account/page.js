@@ -60,7 +60,7 @@ export default function CreateAccount() {
       const {createAccount} = status
       if(createAccount === 201){
         dispatch(SetCreateAccounStatus())
-        router.push('/auth/check-point')
+        router.push(`/auth/check-point?email=${form.email}`)
         return
       }
 

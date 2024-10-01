@@ -7,12 +7,14 @@ const InitialState={
         confirmAccount:false,
         getAuthUser:false,
         login:false,
+        resendCode:false,
     },
     status:{
         createAccount:-1,
         confirmAccount:-1,
         getAuthUser:-1,
         login:-1,
+        resendCode:-1,
     }
 }
 
@@ -115,6 +117,35 @@ export default function (state=InitialState,action){
                     ...state.isLoading,
                     login:action.payload.loading
                 }
+            }
+        case authTypes.RESEND_CODE:
+            return {
+                ...state,
+                isLoading:{
+                    ...state.isLoading,
+                    resendCode:false
+                },
+                status:{
+                    ...state.status,
+                    resendCode:200
+                }
+            }
+        case authTypes.RESEND_CODE_STATUS:
+            return{
+                ...state,
+                status:{
+                    ...state.status,
+                    resendCode:action.payload.status
+                },
+                isLoading:{
+                    ...state.isLoading,
+                    resendCode:action.payload.loading
+                }
+            }
+        case authTypes.LOGOUT:
+            return{
+                ...state,
+                user:null
             }
         default:
             return state

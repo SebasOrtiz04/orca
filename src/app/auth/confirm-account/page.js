@@ -69,12 +69,6 @@ export default function ConfirmAccount() {
                     </Stack>
                 </Stack>
             </CardContent>
-            
-            <CardActions>                
-                    <Button fullWidth color='secondary'>
-                        reenviar código
-                    </Button>
-            </CardActions>
         </Card>
     </Grow>
   )
