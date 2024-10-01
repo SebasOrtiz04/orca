@@ -18,7 +18,8 @@ export default function AuthLAyout({ children }) {
     useEffect(()=>{
 
         if(!user) return
-        router.push('/dashboard')
+        
+        router.push('/')
     },[user])
     
     return (

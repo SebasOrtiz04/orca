@@ -8,7 +8,7 @@ import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import LoginIcon from '@mui/icons-material/Login';
-import { HandleLogin } from "@/redux/actions/AuthAction";
+import { HandleLogin, SetLogintatus } from "@/redux/actions/AuthAction";
 
 export default function Login() {
 
@@ -16,7 +16,7 @@ export default function Login() {
     const router = useRouter();
     const dispatch = useDispatch();
 
-    const {isLoading} = useSelector(state => state.auth);
+    const {isLoading, status} = useSelector(state => state.auth);
 
     const [form, setForm] = useState(loginFormInitialState);
     const [formReady, setFormReady] = useState(loginFormInitialState);
@@ -28,6 +28,16 @@ export default function Login() {
         const isformReady = handleValidateForm(validateForm);
         setFormReady(isformReady)
     },[validateForm])
+
+    useEffect(()=>{
+        const {login} = status;
+        console.log(login)
+        if(login === 401 ){
+            dispatch(SetLogintatus())
+            router.push(`/auth/check-point?email=${form.email}`)
+        }
+
+    },[status])
 
     const handleSend = () => {
         dispatch(HandleLogin(form))
@@ -57,8 +67,8 @@ export default function Login() {
                         disabled={!formReady}
                         startIcon={
                             isLoading.login
-                            ? <CircularProgress size={18} />
-                            : <LoginIcon fontSize="medium"/>
+                            ? <CircularProgress color="secondary" size={18} />
+                            : <LoginIcon color="secondary" fontSize="medium"/>
                         }
                         onClick={() => handleSend()}
                     >

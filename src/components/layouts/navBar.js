@@ -223,6 +223,7 @@ export default function NavBar() {
   src='/img/Logos/orca2.png'
   alt='Logo Orca Eventos Sociales'
   priority
+  formats={['image/avif', 'image/webp']}  
   width={80}
   height={80}
 />
