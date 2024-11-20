@@ -174,7 +174,7 @@ export default function AccountMenu() {
         
         {
           user?.admin &&
-          <MenuItem onClick={() => router.push('/admin/dashboard')}>
+          <MenuItem onClick={() => router.push('/admin')}>
               <ListItemIcon>
                 <AdminPanelSettingsIcon fontSize="small" /> 
               </ListItemIcon>
