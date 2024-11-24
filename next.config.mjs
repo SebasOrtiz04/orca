@@ -3,7 +3,7 @@ const nextConfig = {
     reactStrictMode: true,
   images:{
     formats:['image/avif','image/webp'],
-    // domains:['aca el dominio de la api']
+    domains:['res.cloudinary.com']
   },
   env: {
     NEXT_URL_BASE_API: process.env.NEXT_URL_BASE_API,

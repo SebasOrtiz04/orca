@@ -11,7 +11,8 @@ export const restrictedPage = ready =>{
     const {user, status} = useSelector(state => state.auth)
 
     useEffect(()=>{
-        if(!ready || status!== 200 || user ) return
+        const {getAuthUser} = status
+        if(!ready || getAuthUser === -1 ||  user !== null ) return
         router.push('/')
     },[user,ready,status])
 

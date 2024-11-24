@@ -7,6 +7,7 @@ import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 import CloseIcon from '@mui/icons-material/Close';
 import HomeIcon from '@mui/icons-material/Home';
 import EditCalendarIcon from '@mui/icons-material/EditCalendar';
+import { useRouter } from "next/navigation";
 
 const whatsAppHRef = 'https://wa.me/2226622778?text=Hola,%20estoy%20interesado%20en%20el%20salón%20jardín.';
 
@@ -95,3 +96,18 @@ export const GoogleCalendarButton = () => {
       </>
     );
   };
+
+export const AdminButton = ({label, url, icon = null}) => 
+{
+    const router = useRouter();
+    return(
+    <Button 
+    variant="outlined"  
+    sx={{marginY:2}} 
+    startIcon={ icon }
+    onClick={() => router.push(url)}
+    >
+       {label}
+    </Button>
+    )
+}

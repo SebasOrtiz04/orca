@@ -1,4 +1,7 @@
-import {Typography, Divider, Box} from '@mui/material'
+'use client'
+
+import {Typography, Divider, Box, Grow} from '@mui/material'
+import { useEffect, useState } from 'react'
 
 export const Title1 = ({title}) =>{
 
@@ -12,11 +15,20 @@ export const Title1 = ({title}) =>{
 
 export const AdminTitle = ({title}) =>{
 
+    const [ready, setReady] = useState(false)
+    
+    useEffect(()=>{
+        setReady(true)
+        return () => setReady(false)
+    },[])
+
     return(
         <Box sx={{paddingTop:5}}>
-        <Typography variant='h4' >
-            {title}
-        </Typography>
+            <Grow in={ready}>
+                <Typography variant='h4' >
+                    {title}
+                </Typography>
+            </Grow>
         </Box>
     )
 }

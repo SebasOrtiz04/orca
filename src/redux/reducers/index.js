@@ -5,6 +5,7 @@ import MenuReducer from "./MenuReducer";
 import FullImageReducer from "./FullImageReducer";
 import SocialEventreducer from "./SocialEventReducer";
 import AuthReducer from "./AuthReducer";
+import ImageReducer from "./ImageReducer";
 
 export default combineReducers({
     alerta:AlertReducer,
@@ -13,4 +14,5 @@ export default combineReducers({
     fullImage:FullImageReducer,
     socialEvent:SocialEventreducer,
     auth:AuthReducer,
+    image:ImageReducer
 })

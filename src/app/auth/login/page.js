@@ -31,7 +31,6 @@ export default function Login() {
 
     useEffect(()=>{
         const {login} = status;
-        console.log(login)
         if(login === 401 ){
             dispatch(SetLogintatus())
             router.push(`/auth/check-point?email=${form.email}`)
