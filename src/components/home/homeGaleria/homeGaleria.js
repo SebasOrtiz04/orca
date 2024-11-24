@@ -5,6 +5,7 @@ import ImageFullScreen from '@/components/utils/imageFullScreen';
 import { homeImages } from '@/lib/data/initialStates/homeGaleria';
 import {useDispatch}  from 'react-redux';
 import { OpenImage } from '@/redux/actions/FullImageActions';
+import { Title1 } from '@/components/utils/titles';
 
 function srcset(image, size, rows = 1, cols = 1) {
   return {
@@ -22,6 +23,7 @@ export default function HomeGaleria() {
   return (
     <Container>
 
+      <Title1 title='Galería' />
       <ImageFullScreen
       list={homeImages}
       />        
