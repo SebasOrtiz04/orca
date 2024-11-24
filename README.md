@@ -2,7 +2,7 @@
 
 Este proyecto es un sitio web desarrollado con **Next.js** para la gestión y promoción de un salón de fiestas. Ofrece una interfaz moderna y optimizada, diseñada para mejorar la experiencia de los usuarios que desean conocer, reservar o contactar al salón.
 
-## 🚀 Características
+## ✨ Características
 
 - **Página de inicio atractiva**: Presentación del salón con una galería de imágenes.
 - **Sección de eventos**: Muestra los paquetes disponibles y ejemplos de eventos realizados.
@@ -28,11 +28,12 @@ Este proyecto es un sitio web desarrollado con **Next.js** para la gestión y pr
 ├── src/
 │   ├── app/               # Directorio raíz con páginas y componentes de Next.js
 │   ├── components/        # Componentes reutilizables
-│   ├── styles/            # Archivos de estilos (CSS o Tailwind)
-│   ├── services/          # Servicios o llamadas a la API
 │   ├── lib/               # Funciones utilitarias
 │   ├── pages/             # Archivos de rutas (si no se usa `app/`)
 │   ├── redux/             # Gestión del estado global (opcional)
+│   ├── services/          # Servicios o llamadas a la API
+│   ├── styles/            # Archivos de estilos (CSS o Tailwind)
+│   ├── theme.js           # Configuración del tema de Material-UI
 ├── .env.local             # Variables de entorno
 ├── next.config.js         # Configuración de Next.js
 ├── tailwind.config.js     # Configuración de Tailwind
@@ -100,6 +101,7 @@ Este proyecto es un sitio web desarrollado con **Next.js** para la gestión y pr
 
 - Login y registro de usuarios.
 - Interfaz de administración para gestionar reservas, consultas, eventos , fotografias y contactos.
+- Optimizacion de  imagenes y video para mejorar la experiencia de los usuarios.
 - Filtros y búsqueda avanzada.
 - Integración con Stripe para pagos en línea.
 
@@ -114,24 +116,24 @@ Las contribuciones son bienvenidas. Si tienes ideas o mejoras, abre un issue o e
 ## 📧 Contacto
 
 Correo: [sebastianortizcastro04@gmail.com](mailto:sebastianortizcastro04@gmail.com)
-Sitio Web: [Mi portafolio](https://www.sebastianortiz.dev)
+Sitio Web: [Mi portafolio](https://sebas.mistli.com.mx/)
 Teléfono: +52 522 26 62 27 78
 
 ---
 
-## Learn More
+## 📚 Aprende Más
 
-To learn more about Next.js, take a look at the following resources:
+Para aprender más sobre Next.js, echa un vistazo a los siguientes recursos:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- [Documentación de Next.js](https://nextjs.org/docs) - aprende sobre las características y la API de Next.js.
+- [Aprende Next.js](https://nextjs.org/learn) - un tutorial interactivo de Next.js.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+Puedes visitar 🔗 [el repositorio de GitHub de Next.js](https://github.com/vercel/next.js/) - ¡tus comentarios y contribuciones son bienvenidos!
 
 ---
 
-## Deploy on Vercel
+## 🚀 Despliega en Vercel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+La forma más fácil de desplegar tu aplicación Next.js es usar la [Plataforma Vercel](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) de los creadores de Next.js.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Consulta nuestra 📦 [documentación de despliegue de Next.js](https://nextjs.org/docs/deployment) para más detalles.
