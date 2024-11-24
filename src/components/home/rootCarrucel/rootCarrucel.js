@@ -30,7 +30,7 @@ function Carrucel() {
     }
   },[])
 
-  const maxSteps = imagesInitialState.length;
+  const maxSteps = imagesInitialState?.length;
 
   const handleNext = () => {
     setActiveStep((prevActiveStep) => {

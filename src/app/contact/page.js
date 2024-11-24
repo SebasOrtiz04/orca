@@ -5,10 +5,8 @@ import Box from '@mui/material/Box'
 export default function RootContact() {
   return (
     <Box>
-
-        <HeroContact/>
+      <HeroContact/>
       <HomeContact/>
-      
     </Box>
   )
 }
