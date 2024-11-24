@@ -7,6 +7,7 @@ import ServicesCard from '@/components/cards/serviceCard/serviceCard'
 import { useDispatch, useSelector } from 'react-redux'
 import {  GetHomeSocialEvents } from '@/redux/actions/SocialEventActions'
 import { ServicesLoaderCard } from '@/components/utils/loaders'
+import { Title1 } from '@/components/utils/titles'
 
 export default function Services() {
 
@@ -29,6 +30,8 @@ export default function Services() {
   
   return (
     <Container>      
+
+      <Title1 title="Servicios" />
 
       <Grid container sx={{marginY:8}}>
         {
