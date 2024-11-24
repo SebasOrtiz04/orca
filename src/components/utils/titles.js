@@ -1,4 +1,4 @@
-import {Typography, Divider} from '@mui/material'
+import {Typography, Divider, Box} from '@mui/material'
 
 export const Title1 = ({title}) =>{
 
@@ -7,5 +7,16 @@ export const Title1 = ({title}) =>{
             {title}
             <Divider/>
         </Typography>
+    )
+}
+
+export const AdminTitle = ({title}) =>{
+
+    return(
+        <Box sx={{paddingTop:5}}>
+        <Typography variant='h4' >
+            {title}
+        </Typography>
+        </Box>
     )
 }

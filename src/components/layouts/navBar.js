@@ -27,6 +27,7 @@ import {Container, useTheme} from '@mui/material'
 import Link from 'next/link';
 import styles from './styles.module.css';
 import { useRouter } from 'next/navigation';
+import AccountMenu from './accountMenu';
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -222,6 +223,7 @@ export default function NavBar() {
   src='/img/Logos/orca2.png'
   alt='Logo Orca Eventos Sociales'
   priority
+  formats={['image/avif', 'image/webp']}  
   width={80}
   height={80}
 />
@@ -303,6 +305,7 @@ sx={{display:{xs:'none',md:'flex'},color:theme.palette.secondary.light}}
 >
   <MenuIcon/>
 </IconButton> */}
+<AccountMenu/>
 </Stack>
 
 <CustomMenu />

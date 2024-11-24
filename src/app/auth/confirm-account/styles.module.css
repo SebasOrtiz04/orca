@@ -1,0 +1,20 @@
+
+.img{
+    width: 100px;
+    height: 100px;
+}
+
+.fieldInput{
+    height: 40px;
+    width: 30px;
+    border-radius: 5px;
+    border: 0;
+    font-weight: bold;
+    font-size: 28px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #363f47;
+}
+

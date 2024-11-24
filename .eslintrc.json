@@ -1,3 +1,8 @@
 {
-  "extends": ["next/babel","next/core-web-vitals"]
+  "extends": ["next/babel", "next/core-web-vitals"],
+  "rules": {
+    "semi": ["error", "always"], // Exigir punto y coma
+    "no-unused-vars": ["warn"], // Advertir sobre variables no utilizadas
+    "import/no-unresolved": "error" // Error si faltan importaciones
+  }
 }
