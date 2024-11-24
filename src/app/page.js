@@ -7,7 +7,7 @@ import HomeContact from '@/components/home/homeContact/homeContact';
 import HomeGaleria from '@/components/home/homeGaleria/homeGaleria';
 
 export const metadata = {
-  title: "Orca Eventos Sociales",
+  title: "Inicio | Orca Eventos Sociales",
   description: "Sitio web de Orca salón jardín, eventos sociales, fiestas de cumpleaños, XV años, bodas, banquetes, taquizas, carnitas, mixiotes, inflables, renta de salón, renta de eventos",
 };
 

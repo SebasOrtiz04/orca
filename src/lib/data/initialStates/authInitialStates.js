@@ -101,3 +101,24 @@ export const formInputsCreateAccount = [
     },
 
 ]
+
+export const recoverPasswordFormInisitalState = {
+    email:''
+}
+
+export const validatePAsswordRecoveryFormInitialState = {
+    email: {
+        status: false,
+        regex: new RegExp(/^[^\s@]+@[^\s@]+\.[^\s@]+$/), // Dirección de correo electrónico válida
+        helpText:'El email debe tener una forma válida correo@dominio.com.',
+    },
+};
+
+export const formInputsRecoveryPassword = [
+    {
+        label:'Email',
+        required:true,
+        name:'email',
+        width:'100%'
+    },
+]
