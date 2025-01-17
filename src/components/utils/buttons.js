@@ -9,6 +9,8 @@ import HomeIcon from '@mui/icons-material/Home';
 import EditCalendarIcon from '@mui/icons-material/EditCalendar';
 import { useRouter } from "next/navigation";
 
+import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
+
 const whatsAppHRef = 'https://wa.me/2226622778?text=Hola,%20estoy%20interesado%20en%20el%20salón%20jardín.';
 
 export const WhatsAppTextButton = ({text = 'Contáctanos',color='white',fullWidth=false}) =>{
@@ -29,6 +31,14 @@ export const HomeButton = () =>{
     )
 }
 
+export const LinkButton = ({href = '/', title}) =>{
+    return(                 
+        <Button aria-label='Inicio' startIcon={<ArrowForwardIcon />} size="large" href={href}>
+            {title}
+        </Button>
+    )
+}
+
 export const WhatsAppIconButton = () =>{
     return(
         <IconButton size="large" aria-label='contactanos por whatsapp' href={whatsAppHRef} target='_blank'>
@@ -39,7 +49,7 @@ export const WhatsAppIconButton = () =>{
 
 const Transition = forwardRef(function Transition(props, ref) {
     return <Slide direction="up" ref={ref} {...props} />;
-  });
+});
 
 export const GoogleCalendarButton = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);

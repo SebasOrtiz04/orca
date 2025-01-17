@@ -1,8 +1,6 @@
 'use client';
 
-import { Stack, Typography, Button, Card, CardMedia, CardHeader, CardContent, CardActions, useTheme, TextField, Grow } from '@mui/material'
-import {PinInput, PinInputField} from '@chakra-ui/pin-input'
-import styles from './styles.module.css'
+import { Card, CardHeader, CardContent, CardActions, useTheme, Grow } from '@mui/material'
 
 export default function AuthCard({
   title,

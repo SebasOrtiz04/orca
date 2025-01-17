@@ -28,4 +28,6 @@ y este proyecto sigue [Semantic Versioning](https://semver.org/lang/es/).
 - Se añade el archivo LICENCE.txt con la licencia MIT.
 - Se añade este archivo CHANGELOG.md con la lista de cambios.
 - Se agregan los headers a las secciones del la pagina de inicio.
+
+## [v1.1.0]
   
