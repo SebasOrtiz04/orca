@@ -6,6 +6,7 @@ import { homeImages } from '@/lib/data/initialStates/homeGaleria';
 import {useDispatch}  from 'react-redux';
 import { OpenImage } from '@/redux/actions/FullImageActions';
 import { Title1 } from '@/components/utils/titles';
+import { LinkButton } from '@/components/utils/buttons';
 
 function srcset(image, size, rows = 1, cols = 1) {
   return {
@@ -24,6 +25,9 @@ export default function HomeGaleria() {
     <Container>
 
       <Title1 title='Galería' />
+
+      <LinkButton href='/galery' title='Ver todas las fotos' />
+
       <ImageFullScreen
       list={homeImages}
       />        

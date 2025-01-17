@@ -1,9 +1,14 @@
-import React from 'react'
+import RecoveryPasswordForm from "@/components/auth/RecoverryPasswordForm";
+import { Container } from "@mui/material";
+
 
 export default function RecoveryPassword() {
+
   return (
-    <div>
-      Recuperar contraseña
-    </div>
+    <Container
+      sx={{display:'flex', flexDirection:'column', alignItems:'center'}}
+    >
+      <RecoveryPasswordForm/>
+    </Container>
   )
 }
